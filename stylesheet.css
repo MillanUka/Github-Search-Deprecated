@@ -1,0 +1,41 @@
+h1 {
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#searchbar {
+    min-height: 10px;
+    font-size: 18px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+#content {
+    min-width: 50%;
+    min-height: 50%;
+}
+
+#searchbutton {
+    min-height: 10px;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
+}
+
+#searchresults {
+    text-align: center;
+}
+
+#searcheduser {
+    border-style: solid;
+    border-width: 2px;
+    font-family: Arial, Helvetica, sans-serif;
+    min-width: 1%;
+    min-height: 10%;
+    margin-right: 25%;
+    margin-left: 25%;
+}
+
+#searcheduser img {
+    min-width: 25%;
+    min-height: 25%;
+    max-width: 25%;
+    max-height: 25%;
+}
