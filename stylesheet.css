@@ -33,6 +33,8 @@ body {
     text-align: center;
     background-color: black;
     max-height: 75%;
+    display: block;
+    float: center;
 }
 
 #searcheduser {
@@ -52,18 +54,30 @@ body {
     max-width: 25%;
     max-height: 25%;
     margin-bottom: 5%;
+    border: 3px solid orange;
+}
+
+#detailsbutton {
+    margin-left: 10%;
 }
 
 #userdetails {
     margin-left: 1%;
+    float: center;
 }
 
 #content a {
-    color: white;
+    color: orange;
     text-decoration: none;
 }
 
 #content a:visited {
-    color: darkgray;
+    color: orange;
     text-decoration: none;
+}
+
+#content a:hover {
+    color: orange;
+    text-decoration: none;
+    font-size: 150%;
 }
