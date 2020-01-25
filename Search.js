@@ -18,7 +18,11 @@ function performSearch(searchedUsername) {
                 var searchResults = document.getElementById('searchresults');
 
                 data.data.items.forEach(userProfile => {
-                    searchResults.insertAdjacentHTML('beforeend', "<a href=\"" + userProfile.html_url + "\"><div id=\"searcheduser\"><h1>" + userProfile.login + "</h1> <img src=\"" + userProfile.avatar_url + "\" alt=\"User profile image\"></div></a>");
+                    var userProfileElement = "<a href=\"" +
+                        userProfile.html_url + "\"><div id=\"searcheduser\"><h1>" +
+                        userProfile.login + "</h1> <img src=\"" +
+                        userProfile.avatar_url + "\" alt=\"User profile image\"></div></a>";
+                    searchResults.insertAdjacentHTML('beforeend', userProfileElement);
                 });
             }
         });
@@ -29,5 +33,4 @@ function performSearch(searchedUsername) {
 
 function clearResults() {
     $("#searchresults").empty();
-    console.log("Results cleared")
 }
