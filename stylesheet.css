@@ -2,27 +2,37 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+body {
+    background-color: black;
+}
+
 #content {
     min-width: 50%;
     min-height: 50%;
     text-align: center;
+    background-color: black;
+    max-height: 75%;
+    overflow: auto;
+    display: block;
 }
 
 #searchbar {
     min-height: 20px;
     min-width: 10%;
-    font-size: 18px;
+    font-size: 22px;
     font-family: Arial, Helvetica, sans-serif;
 }
 
 #searchbutton {
-    min-height: 10px;
+    min-height: 20px;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 18px;
+    font-size: 22px;
 }
 
 #searchresults {
     text-align: center;
+    background-color: black;
+    max-height: 75%;
 }
 
 #searcheduser {
@@ -31,8 +41,9 @@ h1 {
     font-family: Arial, Helvetica, sans-serif;
     min-width: 1%;
     min-height: 10%;
-    margin-right: 25%;
-    margin-left: 25%;
+    margin-bottom: 5%;
+    margin-top: 5%;
+    text-align: left;
 }
 
 #searcheduser img {
@@ -43,10 +54,16 @@ h1 {
     margin-bottom: 5%;
 }
 
+#userdetails {
+    margin-left: 1%;
+}
+
 #content a {
-    color: black;
+    color: white;
+    text-decoration: none;
 }
 
 #content a:visited {
     color: darkgray;
+    text-decoration: none;
 }

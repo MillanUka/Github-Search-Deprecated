@@ -19,9 +19,9 @@ function performSearch(searchedUsername) {
 
                 data.data.items.forEach(userProfile => {
                     var userProfileElement = "<a href=\"" +
-                        userProfile.html_url + "\"><div id=\"searcheduser\"><h1>" +
+                        userProfile.html_url + "\"><div id=\"searcheduser\"><div id=\"userdetails\"><h1>" +
                         userProfile.login + "</h1> <img src=\"" +
-                        userProfile.avatar_url + "\" alt=\"User profile image\"></div></a>";
+                        userProfile.avatar_url + "\" alt=\"User profile image\"></div></div></a>";
                     searchResults.insertAdjacentHTML('beforeend', userProfileElement);
                 });
             }
