@@ -17,8 +17,8 @@ function performSearch(searchedUsername) {
             data.data.items.forEach(userProfile => {
                 SEARCH_USER_PROFILE_LIST.push(userProfile);
                 var userProfileElement = "<a href=\"" +
-                    userProfile.html_url + "\"><div class=\"card\" id=\"searcheduser\"><div class=\"card-title\"id=\"userdetails\" style=\"text-align: center;\"><h1>" +
-                    userProfile.login + "</h1> <img class=\"card-img-top\" src=\"" +
+                    userProfile.html_url + "\"><div class=\"card border\" id=\"searcheduser\"><div class=\"card-title\"id=\"userdetails\" style=\"text-align: center;\"><h1>" +
+                    userProfile.login + "</h1> <img class=\"card-img-top border\" src=\"" +
                     userProfile.avatar_url + "\" alt=\"User profile image\"></div></div></a>";
                 searchResults.insertAdjacentHTML('beforeend', userProfileElement);
             });
