@@ -1,15 +1,25 @@
 document.getElementById("searchbutton").addEventListener("click", function() {
-    console.log("search button clicked")
+    clearResults();
     performSearch(API + SEARCH_USER + document.getElementById("searchbar").value);
+    window.onscroll = function(ev) {
+        //Checking whether the user is at the bottom of the webpage
+        if ((window.innerHeight + window.pageYOffset) >= document.body.offsetHeight) {
+            nextSearchResults();
+        }
+    }
 });
 
 function performSearch(search) {
-    clearResults();
     $.ajax({
         type: 'GET',
         url: search,
         dataType: 'jsonp',
         success: function getProfile(data) {
+            if (data.data.message) {
+                alert("You have made too many calls to the Github API. Please try again in an hour");
+                return;
+            }
+
             nextSearchResultsLinks = data.meta.Link;
             console.log(data)
             displaySearchResults(data.data.items);
@@ -19,21 +29,14 @@ function performSearch(search) {
 }
 
 function nextSearchResults() {
-    clearResults();
     console.log(nextSearchResultsLinks);
-    if (nextSearchResultsLinks[0][0] != null && nextSearchResultsLinks[0][1].rel == "next")
+    if (nextSearchResultsLinks[0][0] != null && nextSearchResultsLinks[0][1].rel == NEXT)
         performSearch(nextSearchResultsLinks[0][0]);
-    else if (nextSearchResultsLinks[1][0] != null && nextSearchResultsLinks[1][1].rel == "next") {
+    else if (nextSearchResultsLinks[1][0] != null && nextSearchResultsLinks[1][1].rel == NEXT) {
         performSearch(nextSearchResultsLinks[1][0]);
     }
 }
 
-function prevSearchResults() {
-    clearResults();
-    console.log(nextSearchResultsLinks);
-    if (nextSearchResultsLinks[0][0] != null && nextSearchResultsLinks[0][1].rel == "prev")
-        performSearch(nextSearchResultsLinks[0][0]);
-}
 
 function displaySearchResults(items) {
     var searchResults = document.getElementById('searchresults');
@@ -44,10 +47,6 @@ function displaySearchResults(items) {
             userProfile.avatar_url + "\" alt=\"User profile image\"></div></div></a>";
         searchResults.insertAdjacentHTML('beforeend', userProfileElement);
     });
-
-    searchResults.insertAdjacentHTML('beforeend', "<button class=\"btn bg-primary text-white\" id=\"prev\">Prev</button><button class=\"btn bg-primary text-white\" id=\"next\">Next</button>");
-    document.getElementById("next").addEventListener("click", nextSearchResults);
-    document.getElementById("prev").addEventListener("click", prevSearchResults);
 }
 
 function clearResults() {

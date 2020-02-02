@@ -3,4 +3,6 @@
     margin-bottom: 1%;
 }
 
-#searchbar {}
+#searchresults {
+    overflow: auto;
+}
